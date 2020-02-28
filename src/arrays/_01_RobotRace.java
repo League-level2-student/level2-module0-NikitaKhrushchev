@@ -1,8 +1,35 @@
 package arrays;
 
-public class _01_RobotRace {
-	//1. make a main method
+import java.util.Random;
 
+import org.jointheleague.graphical.robot.Robot;
+
+public class _01_RobotRace {
+	static //1. make a main method
+	Robot[] r = new Robot[5];
+	static Random w = new Random();
+	public static void main(String[] args) throws InterruptedException {
+	for (int i = 0; i < r.length; i++) {
+		r[i] = new Robot();
+		r[i].setX(i*150+100);
+		r[i].setY(500);
+		r[i].setSpeed(200);
+	}	
+	boolean won = false;
+	String c = new String();
+	while(!won) {
+		for (int i = 0; i < r.length; i++) {
+			r[i].move(w.nextInt(500));
+		if(r[i].getY()<1) {
+			won = true;
+			c = Integer.toString(i);
+		}
+	}
+	if (won) {
+		String sd = ("Robot " +c + " wins"); 
+		System.out.println(sd);
+	}
+	}
 	//2. create an array of 5 robots.
 
 	//3. use a for loop to initialize the robots.
@@ -20,3 +47,4 @@ public class _01_RobotRace {
 
 	//9. make the robots race around a circular track.
 }
+	}
